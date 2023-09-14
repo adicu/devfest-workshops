@@ -8,7 +8,7 @@ The goal of this hackathon bootcamp series is to help people go from coding in t
 
 Devfest is taking place the last week of January. The week before Devfest will be filled with two kinds of events: **evangelizing discussions** and **fill-in-the-blank work sessions**. (Names subject to change)
 
-**Evangelizing discussions:** We noticed that the best workshops we've been to didn't involve any coding. Instead, they are what we might call evangelical discussions, which are more focused on promoting the design and philosophy of a technique as opposed to the implementation details. That said, they are often quite practical. Some good talks of this form might be "10 things I learned from 10 years of React development" or "A job whale done: How Docker can streamline your environment setup and simplify your deployment."
+**Evangelizing discussions:** These talks involve no coding. They are more focused on promoting the design and philosophy of a technique as opposed to the implementation details. That said, they are often quite practical. Some good talks of this form might be "10 things I learned from 10 years of React development" or "A job whale done: How Docker can streamline your environment setup and simplify your deployment."
 
 **Fill-in-the-blank work sessions:** Think about the most fun p-sets you've done for a coding class. You're probably imaging some version of a fill-in-the-blank exercise, where the instructor has already completed the scaffolding for you, and your job is to fill in the missing sections of code. Along with the scaffolding you're given some unit tests. Once you pass all the unit tests, you'll get to see satisfying green checkmarks and have a working program!
 
