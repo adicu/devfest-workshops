@@ -29,4 +29,4 @@ Making a gamified coding coloring book is a substantial project. As a result, I 
 
 This is a tight timeline, especially around October-November. We probably want a team of 5-7 people to do this, each spending ~3-5 hrs a week on average. 
 
-For specific tasks, we will be using the following Jira board: <JIRA LINK WILL GO HERE>
+For specific tasks, we will be using the following Jira board: [JIRA LINK WILL GO HERE]
