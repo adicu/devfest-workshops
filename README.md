@@ -22,5 +22,11 @@ We imagine that many people might take their bootcamp project, add a new feature
 
 Making a gamified coding coloring book is a substantial project. As a result, I think we should spend the entire semester preparing this material. Here's a rough timeline:
 
+- September 20: decide on a sample app as the overarching project
+- September-October: finish an initial version of a single module, complete with unit tests and tutorials. Beta test it.
+- October-November: Split into small teams to develop more modules, using the initial one as a template. 
+- November-December: Add gamification and make improvements to the existing modules.
 
+This is a tight timeline, especially around October-November. We probably want a team of 5-7 people to do this, each spending ~3-5 hrs a week on average. 
 
+For specific tasks, we will be using the following Jira board: <JIRA LINK WILL GO HERE>
