@@ -10,13 +10,13 @@ Devfest is taking place the last week of January. The week before Devfest will b
 
 **Evangelizing discussions:** These talks involve no coding. They are more focused on promoting the design and philosophy of a technique as opposed to the implementation details. That said, they are often quite practical. Some good talks of this form might be "10 things I learned from 10 years of React development" or "A job whale done: How Docker can streamline your environment setup and simplify your deployment."
 
-**Fill-in-the-blank work sessions:** Think about the most fun p-sets you've done for a coding class. You're probably imagining some version of a fill-in-the-blank exercise, where the instructor has already completed the scaffolding for you, and your job is to fill in the missing sections of code. Along with the scaffolding you're given some unit tests. Once you pass all the unit tests, you'll get to see satisfying green checkmarks and have a working program!
+**Fill-in-the-blank work session:** Our fill-in-the-blank projects are just like homework assignments where the instructor has already completed the scaffolding for you and your job is to fill in the missing sections of code. For our hackathon bootcamp, we will create one of these fill-in-the-blank projects, which will have modules teaching you all the important skills -- frontend, backend, databases, design, etc. Along with the scaffolding you're given some unit tests. Once you pass all the unit tests, you'll get to see satisfying green checkmarks and have a working program! 
 
-For our hackathon bootcamp, we will create one of these gamified sample projects, which will have modules teaching you all the important skills -- frontend, backend, databases, design, etc. During the Devfest week, we will conquer a room for 2 hours a day and use it for working through the fill-in-the-blank projects. We will have experienced hackers around the room to help with technical issues (or just to chat!).  The modules of this sample app will be relatively independent, so that you can choose your own adventure and add new features as you please. 
+During the Devfest week, we will conquer a room for 2 hours a day and use it for working through the fill-in-the-blank projects. We will have experienced hackers around the room to help with technical issues (or just to chat!).  The modules of this sample app will be relatively independent, so that you can choose your own adventure and add new features as you please. 
 
 Think of the sample project as an adult coloring book, except we are coding instead of coloring.
 
-We imagine that many people might take their bootcamp project, add a new feature, and submit it for the hackathon. This is great! That means they've learned the skills they need to work on a hackathon-style project and are one step closer to bringing their future dreams to life. 
+Some people might take their bootcamp project, add a new feature, and submit it for the hackathon. This is great! That means they've learned the skills they need to work on a hackathon-style project and are one step closer to bringing their future dreams to life. 
 
 ## Project Timeline
 
