@@ -14,7 +14,7 @@ Devfest is taking place the last week of January. The week before Devfest will b
 
 For our hackathon bootcamp, we will create one of these gamified sample projects, which will have modules teaching you all the important skills -- frontend, backend, databases, design, etc. During the Devfest week, we will conquer a room for 2 hours a day and use it for working through the fill-in-the-blank projects. We will have experienced hackers around the room to help with technical issues (or just to chat!).  The modules of this sample app will be relatively independent, so that you can choose your own adventure and add new features as you please. 
 
-Think of this sample project as an adult coloring book, except we are coding instead of coloring.
+Think of the sample project as an adult coloring book, except we are coding instead of coloring.
 
 We imagine that many people might take their bootcamp project, add a new feature, and submit it for the hackathon. This is great! That means they've learned the skills they need to work on a hackathon-style project and are one step closer to bringing their future dreams to life. 
 
