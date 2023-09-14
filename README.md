@@ -18,7 +18,7 @@ We imagine that many people might take their bootcamp project, add a new feature
 
 ## Project Timeline
 
-Making a gamified coding coloring book is a substantial project. As a result, I think we should spend the entire semester preparing this material. Here's a rough timeline:
+Making a gamified coding coloring book is a substantial project. Here's a rough timeline:
 
 - September 20: decide on a sample app as the overarching project
 - September-October: finish an initial version of the app. Convert a single module into fill-in-the-blank format, complete with unit tests and tutorials. Beta test the single module.
