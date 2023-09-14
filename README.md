@@ -1,6 +1,6 @@
 # devfest-workshops
 
-Imagine you've just finished your intro Python class, but you're wondering what's next. How are people building all these cool projects? Though you feel a bit intimidated, you realize you want to build things -- you want to bring your dreams to life!
+Imagine you've just finished your intro Python class, but you're wondering: What's next? How are people building all these cool projects? Though you feel a bit intimidated, you realize you want to build things -- you want to bring your dreams to life!
 
 The goal of this hackathon bootcamp series is to help people go from coding in the classroom to building a real-world hackathon app -- all within the span of 5 days. For those with more experience, we provide the chance to build on a gamified choose-your-own-adventure scaffolding, as well as a community of supportive hackers. 
 
