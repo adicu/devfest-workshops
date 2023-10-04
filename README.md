@@ -1,3 +1,5 @@
+⚠️ *Note: this workshop series is still an active work in progress. Stay tuned for updates soon!* ⚠️ 
+
 # devfest-workshops
 
 Imagine you've just finished your intro Python class. Suddenly, you wonder: what's next? How are people building all these cool projects, when all I've done is print to the terminal? Though you feel a bit intimidated, you realize you want to build things -- you want to bring your dreams to life!
