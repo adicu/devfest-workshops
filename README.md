@@ -1,4 +1,4 @@
-⚠️ Note: this workshop series is still an active work in progress. Stay tuned for updates soon!
+⚠️ *Note: this workshop series is still an active work in progress. Stay tuned for updates soon!* ⚠️ 
 
 # devfest-workshops
 
