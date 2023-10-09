@@ -6,6 +6,14 @@ Imagine you've just finished your intro Python class. Suddenly, you wonder: what
 
 The goal of this hackathon bootcamp series is to help people go from coding in the classroom to building a real-world hackathon app -- all within the span of 5 days. For those with more experience, we provide the chance to build on a gamified choose-your-own-adventure scaffolding, as well as a community of supportive hackers. 
 
+## Modules
+
+- Frontend
+- Backend
+- AI
+- Communications APIs (Twilio, Sendgrid) for text messages and emails
+- AR/VR (WebGL) - TBD what this feature is
+
 ## Structure
 
 Devfest is taking place the last week of January. The week before Devfest will be filled with two kinds of events: **evangelizing discussions** and **fill-in-the-blank work sessions**. (Names subject to change)
