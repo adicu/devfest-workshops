@@ -13,6 +13,7 @@ The goal of this hackathon bootcamp series is to help people go from coding in t
 - AI
 - Communications APIs (Twilio, Sendgrid) for text messages and emails
 - AR/VR (WebGL) - TBD what this feature is
+- CI/CD - CircleCI, Modal, Vercel
 
 ## Structure
 
