@@ -27,7 +27,7 @@ const SingleList = (props: SingleListProps) => {
         <p className="text-gray-600 text-right">Last updated: {props.date}</p>
 
         <p className="mt-2">{props.description}</p>
-        <ul>
+        <ul className="list-disc ml-8">
           {props.movies.map((movie, index) => (
             <li key={index}>{movie}</li>
           ))}

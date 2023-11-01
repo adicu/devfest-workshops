@@ -12,7 +12,7 @@ const SingleMovie = (props: SingleMovieProps) => {
   return (
     <div className="flex bg-white p-4 space-x-4 rounded-lg shadow-md w-full mx-auto">
       <Image
-        src={`/assets/${props.image}.png`}
+        src={`/assets/${props.image}`}
         alt="Spider-Man"
         width={300}
         height={300}
@@ -22,9 +22,8 @@ const SingleMovie = (props: SingleMovieProps) => {
       <div className="flex-1">
         <h2 className="text-xl font-bold">{props.title}</h2>
         <p className="text-gray-600 text-right">Last updated: {props.date}</p>
-
         <p className="mt-2">{props.description}</p>
-
+        // TODO: have to fix this styling so button stays at bottom
         <div className="mt-4 flex justify-end">
           <button className="bg-blue-500 text-white rounded px-4 py-2 hover:bg-blue-600">
             Edit entry
