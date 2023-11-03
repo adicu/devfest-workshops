@@ -1,7 +1,7 @@
-import MainHeader from "@/components/MainHeader";
-import ProfileMovieTab from "@/components/ProfileMainTab";
-import WelcomeContent from "@/components/WelcomeContent";
-import Head from "next/head";
+import Head from 'next/head';
+import MainHeader from '@/components/MainHeader';
+import ProfileMovieTab from '@/components/ProfileMainTab';
+import WelcomeContent from '@/components/WelcomeContent';
 
 export default function Homepage() {
   return (
