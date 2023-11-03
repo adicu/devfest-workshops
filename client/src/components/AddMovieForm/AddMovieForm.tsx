@@ -57,13 +57,13 @@ export default function AddMovieForm() {
             onFocus={(_) => setShowResults(true)}
             className=" w-full border-[1px] border-black rounded-xl px-4 py-2 text-xl md:min-w-[500px] placeholder:text-[#DFDFDF]"
           />
-          { showResults && (
+          { showResults && results && results.length > 0 && (
           <div className="absolute left-0 right-0 w-full bg-white border-2 max-h-96 overflow-y-scroll">
             {results?.map((m) => (
               <button type="button" className="block w-full p-5 border-b-2 hover:bg-gray-200 transition-colors" onClick={(_) => selectMovie(m)}>
                 <div className="flex gap-4">
                   <div className="flex-shrink-0 w-20 h-32 relative">
-                    <Image className="object-contain" fill src={`https://image.tmdb.org/t/p/original${m.poster_path}`} alt={`Poster for ${m.title}`} />
+                    <Image className="object-contain" fill src={`https://image.tmdb.org/t/p/w200${m.poster_path}`} alt={`Poster for ${m.title}`} />
                   </div>
                   <div className="flex flex-grow flex-col justify-between items-start text-left">
                     <h1 className="font-bold">
