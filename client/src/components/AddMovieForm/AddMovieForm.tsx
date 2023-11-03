@@ -42,7 +42,7 @@ export default function AddMovieForm() {
 
   return (
     <div className="flex justify-center">
-      <div className="">
+      <div className="pt-4">
         <div className="flex flex-col gap-2">
           <h1 className="text-4xl font-bold">Add another movie</h1>
           <p className="text-xl">Your fans can&apos;t wait to see it</p>
