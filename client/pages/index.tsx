@@ -1,5 +1,7 @@
 import Head from 'next/head';
 import styles from '../styles/Home.module.css';
+import { ClerkProvider } from '@clerk/nextjs';
+import Header from '../src/components/Header/Header'
 
 export default function Home() {
   return (
@@ -9,7 +11,9 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
+	<ClerkProvider>
       <main>
+		<Header></Header>
         <h1 className={styles.title}>
           Welcome to <a href="https://nextjs.org">Next.js!</a>
         </h1>
@@ -48,6 +52,7 @@ export default function Home() {
           </a>
         </div>
       </main>
+	</ClerkProvider>
 
       <footer>
         <a
