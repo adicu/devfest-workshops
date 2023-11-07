@@ -1,8 +1,11 @@
 import React from "react";
+import { useRouter } from "next/router";
 
 const AddMovieButton = () => {
+  const router = useRouter();
+
   const handleAddList = () => {
-    alert("Add list button clicked!");
+    router.push("/profile/collections/new");
   };
   return (
     <button
