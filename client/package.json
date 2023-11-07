@@ -10,8 +10,8 @@
     "test": "jest --watch"
   },
   "dependencies": {
+    "@clerk/clerk-js": "^4.64.2",
     "@clerk/nextjs": "^4.26.2",
-    "next": "latest",
     "@types/node": "18.15.11",
     "@types/react": "18.0.35",
     "@types/react-dom": "18.0.11",
@@ -20,6 +20,7 @@
     "eslint": "^8.2.0",
     "eslint-config-next": "13.3.0",
     "lodash": "^4.17.21",
+    "next": "latest",
     "postcss": "8.4.22",
     "react": "18.2.0",
     "react-dom": "18.2.0",
