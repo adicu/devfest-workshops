@@ -5,7 +5,7 @@
     "airbnb-typescript"
   ],
   "parserOptions": {
-    "project": "./tsconfig.json"
+    "project": "./client/tsconfig.json"
   },
   "rules": {
     "@typescript-eslint/no-unused-vars": [
