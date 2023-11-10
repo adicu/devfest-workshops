@@ -1,12 +1,18 @@
-import { useCallback, useState } from 'react';
-import { debounce } from 'lodash';
-import Image from 'next/image';
-import Movie from './types';
-import MoviesAPI from './MoviesAPI';
+import { useCallback, useState } from "react";
+import { debounce } from "lodash";
+import Image from "next/image";
+import { Movie, MovieCollectionItem } from "./types";
+import MoviesAPI from "./MoviesAPI";
 
-export default function AddMovieForm() {
-  const [name, setName] = useState<string>('');
-  const [review, setReview] = useState<string>('');
+type AddMovieFormProps = {
+  onAddMovie?: (newMovie: MovieCollectionItem) => void;
+};
+
+export default function AddMovieForm({
+  onAddMovie = () => {},
+}: AddMovieFormProps) {
+  const [name, setName] = useState<string>("");
+  const [review, setReview] = useState<string>("");
   const [movie, setMovie] = useState<Movie>();
   const [results, setResults] = useState<Movie[]>();
   const [showResults, setShowResults] = useState<boolean>();
@@ -24,7 +30,7 @@ export default function AddMovieForm() {
 
   const debouncedSearch = useCallback(
     debounce((nextValue) => doSearch(nextValue), 500),
-    [],
+    []
   );
 
   const handleNameChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -35,7 +41,7 @@ export default function AddMovieForm() {
 
   const submit = () => {
     console.log(movie, review);
-    alert('Clicked Add to Profile!');
+    alert("Clicked Add to Profile!");
   };
 
   // TODO: make form changes setName and setReview.
@@ -57,28 +63,40 @@ export default function AddMovieForm() {
             onFocus={(_) => setShowResults(true)}
             className=" w-full border-[1px] border-black rounded-xl px-4 py-2 text-xl md:min-w-[500px] placeholder:text-[#DFDFDF]"
           />
-          { showResults && results && results.length > 0 && (
-          <div className="absolute left-0 right-0 w-full bg-white border-2 max-h-96 overflow-y-scroll">
-            {results?.map((m) => (
-              <button type="button" className="block w-full p-5 border-b-2 hover:bg-gray-200 transition-colors" onClick={(_) => selectMovie(m)}>
-                <div className="flex gap-4">
-                  <div className="flex-shrink-0 w-20 h-32 relative">
-                    <Image className="object-contain" fill src={`https://image.tmdb.org/t/p/w200${m.poster_path}`} alt={`Poster for ${m.title}`} />
+          {showResults && results && results.length > 0 && (
+            <div className="absolute left-0 right-0 w-full bg-white border-2 max-h-96 overflow-y-scroll">
+              {results?.map((m) => (
+                <button
+                  type="button"
+                  className="block w-full p-5 border-b-2 hover:bg-gray-200 transition-colors"
+                  onClick={(_) => selectMovie(m)}
+                >
+                  <div className="flex gap-4">
+                    <div className="flex-shrink-0 w-20 h-32 relative">
+                      <Image
+                        className="object-contain"
+                        fill
+                        src={`https://image.tmdb.org/t/p/w200${m.poster_path}`}
+                        alt={`Poster for ${m.title}`}
+                      />
+                    </div>
+                    <div className="flex flex-grow flex-col justify-between items-start text-left">
+                      <h1 className="font-bold">
+                        {m.title} ({m.release_date.slice(0, 4)})
+                      </h1>
+                      <a
+                        target="_blank"
+                        rel="noreferrer"
+                        href={`https://themoviedb.org/movie/${m.id}`}
+                        className="text-blue-400 text-sm"
+                      >
+                        Open on themoviedb.org &#x2197;
+                      </a>
+                    </div>
                   </div>
-                  <div className="flex flex-grow flex-col justify-between items-start text-left">
-                    <h1 className="font-bold">
-                      {m.title}
-                      {' '}
-                      (
-                      {m.release_date.slice(0, 4)}
-                      )
-                    </h1>
-                    <a target="_blank" rel="noreferrer" href={`https://themoviedb.org/movie/${m.id}`} className="text-blue-400 text-sm">Open on themoviedb.org &#x2197;</a>
-                  </div>
-                </div>
-              </button>
-            ))}
-          </div>
+                </button>
+              ))}
+            </div>
           )}
         </div>
 
@@ -92,12 +110,15 @@ export default function AddMovieForm() {
         <div className="flex justify-center mt-4">
           <button
             type="button"
-            onClick={(_) => submit()}
+            onClick={(_) => {
+              if (movie) {
+                onAddMovie({ movie: movie, notes: review });
+              }
+            }}
             className="py-3 px-4 bg-[#5DAE50] text-white text-xl rounded-xl disabled:bg-gray-400"
             disabled={!movie || !review}
           >
             Add to Profile
-
           </button>
         </div>
       </div>
