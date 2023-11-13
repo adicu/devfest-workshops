@@ -1,8 +1,10 @@
-import Head from 'next/head';
+import Head from "next/head";
+import MainHeader from "@/components/MainHeader";
 
 export default function Homepage() {
   return (
-    <div className="px-2 md:px-36 py-20">
+    <div>
+      <MainHeader />
       <Head>
         <title>Next Template</title>
       </Head>
