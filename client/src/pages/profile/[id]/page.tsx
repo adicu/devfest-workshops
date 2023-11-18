@@ -4,17 +4,15 @@ import { useUser } from "@clerk/nextjs";
 import ProfileMovieTab from "@/components/ProfileMainTab";
 import WelcomeContent from "@/components/WelcomeContent";
 
-export default function Homepage() {
-  const { user } = useUser();
+export default function OtherProfiles({ id }: { id: string }) {
   return (
     <div>
       <MainHeader />
       <div className="px-2 md:px-64">
         <Head>
-          <title>Profile</title>
+          <title>{id}'s Profile</title>
         </Head>
         <div>
-          <WelcomeContent name={user?.firstName} />
           <ProfileMovieTab />
         </div>
       </div>
