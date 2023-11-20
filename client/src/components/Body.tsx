@@ -4,31 +4,16 @@ import MovieList from './MovieList';
 import Movie from './Movie';
 
 function Body() {
-  const bigBox = {
-    display: 'flex',
-    padding: '20px',
-  };
-  const communityLists = {
-    flex: 2,
-  };
-  const subtitle = {
-    fontSize: '20px',
-    fontWeight: 'bold',
-    paddingBottom: '15px',
-  };
-  const recents = {
-    width: '30%',
-  };
   return (
-    <div style={bigBox}>
-      <div style={communityLists}>
-        <h1 style={subtitle}>Community Movie Lists</h1>
+    <div className="lg:flex p-20">
+      <div className="lg:basis-3/4">
+        <h1 className="text-xl font-bold mb-2">Community Movie Lists</h1>
         <MovieList />
         <MovieList />
         <MovieList />
       </div>
-      <div style={recents}>
-        <h1 style={subtitle}>Recent Reviews</h1>
+      <div className="basis-1/4 pl-3">
+        <h1 className="text-xl font-bold mb-2">Recent Reviews</h1>
         <Movie />
         <Movie />
         <Movie />

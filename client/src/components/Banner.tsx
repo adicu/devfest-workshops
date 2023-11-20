@@ -2,71 +2,22 @@
 import React from 'react';
 
 function Banner() {
-  const banner = {
-    backgroundColor: 'white',
-    color: 'black',
-    padding: '20px',
-    alignItems: 'center',
-  };
-  const bannerStuff = {
-    display: 'flex',
-    alignItems: 'center',
-  };
-  const oldMan = {
-    width: '30%',
-    marginRight: '20px',
-  };
-  const allText = {
-    flex: 1,
-    paddingRight: '20px',
-  };
-  const slogan = {
-    paddingRight: '20px',
-    width: '80%',
-  };
-  const sloganTitle = {
-    fontSize: '24px',
-    fontWeight: 'bold',
-  };
-  const sloganText = {
-    fontSize: '16px',
-    paddingBottom: '20px',
-  };
-  const minibox = {
-    display: 'flex',
-    alignItems: 'center',
-  };
-  const join = {
-    flex: 0.35,
-    fontSize: '18px',
-    backgroundColor: 'green',
-    color: 'white',
-    padding: '5px',
-    borderRadius: '20px',
-    textDecoration: 'none',
-    fontWeight: 'bold',
-    display: 'inline',
-  };
-  const browse = {
-    fontSize: '14px',
-    marginLeft: '20px',
-    alignItems: 'center',
-    fontWeight: 'bold',
-  };
   return (
-    <div style={banner}>
-      <div style={bannerStuff}>
-        <div style={allText}>
-          <div style={slogan}>
-            <h1 style={sloganTitle}>Meet your next favorite movie.</h1>
-            <p style={sloganText}>The best discoveries come from people who share your taste. FlickPicks lets you make and share lists of movies with like-minded moviegoers from around the world. </p>
+    <div className="bg-white text-black p-20 lg:flex items-center">
+      <div className="lg:flex items-center">
+        <div className="lg:basis-2/3 lg:pr-20">
+          <div className="lg:pr-20 w-100">
+            <h1 className="text-24 font-bold">Meet your next favorite movie.</h1>
+            <p className="text-16 pb-5">The best discoveries come from people who share your taste. FlickPicks lets you make and share lists of movies with like-minded moviegoers from around the world. </p>
           </div>
-          <div style={minibox}>
-            <button type="button" style={join}>Join the Community</button>
-            <p style={browse}>or browse community lists</p>
+          <div className="flex items-center">
+            <button type="button" className="flex-none text-base bg-green-500 text-white py-2 px-4 rounded-2xl no-underline font-bold inline">Join the Community</button>
+            <p className="text-14 ml-5 text-center font-bold underline">or browse community lists</p>
           </div>
         </div>
-        <img src="oldguyfromup.jpg" alt="the old guy from up sitting in a sofa with his walker standing next to him" style={oldMan} />
+        <div className="hidden lg:block lg:basis-1/3">
+          <img src="oldguyfromup.jpg" alt="the old guy from up sitting in a sofa with his walker standing next to him" className="w-100 mr-20" />
+        </div>
       </div>
     </div>
   );
