@@ -31,7 +31,7 @@ const MainHeader = () => {
                 />{" "}
               </svg>
             </button>
-            <a href="https://adicu.com" className="flex mr-4">
+            <a href="/" className="flex mr-4">
               <img
                 src="/assets/logo.png"
                 className="mr-3 h-8"
