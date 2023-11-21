@@ -44,6 +44,7 @@ const MainHeader = () => {
               <UserButton
                 afterSignOutUrl="/"
                 userProfileUrl="/profile"
+                userProfileMode="navigation"
                 appearance={{
                   elements: {
                     userButtonTrigger: {

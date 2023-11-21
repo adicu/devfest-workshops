@@ -1,10 +1,12 @@
-import Head from "next/head";
 import MainHeader from "@/components/MainHeader";
-import { useUser } from "@clerk/nextjs";
+import OtherProfileWelcome from "@/components/OtherProfileWelcome";
 import ProfileMovieTab from "@/components/ProfileMainTab";
-import WelcomeContent from "@/components/WelcomeContent";
+import Head from "next/head";
+import { useRouter } from "next/router";
 
-export default function OtherProfiles({ id }: { id: string }) {
+export default function OtherProfiles() {
+  const router = useRouter();
+  const { id } = router.query;
   return (
     <div>
       <MainHeader />
@@ -13,6 +15,7 @@ export default function OtherProfiles({ id }: { id: string }) {
           <title>{id}'s Profile</title>
         </Head>
         <div>
+          <OtherProfileWelcome name={id} />
           <ProfileMovieTab />
         </div>
       </div>
