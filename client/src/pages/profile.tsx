@@ -6,7 +6,6 @@ import WelcomeContent from "@/components/WelcomeContent";
 
 export default function Homepage() {
   const { user } = useUser();
-  console.log(user);
   return (
     <div>
       <MainHeader />

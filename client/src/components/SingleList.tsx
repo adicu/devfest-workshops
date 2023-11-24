@@ -1,6 +1,7 @@
 import React from "react";
 import Image from "next/image";
 import { FiEdit } from "react-icons/fi";
+import Link from "next/link";
 
 type SingleListProps = {
   username: string;
@@ -27,7 +28,9 @@ const SingleList = (props: SingleListProps) => {
         <div className="flex justify-between">
           <div className="flex-col">
             <h2 className="text-xl font-bold">{props.title}</h2>
-            <h2 className="text-lg">@{props.username}</h2>
+            <h2 className="text-lg">
+              <Link href={`/profile/${props.username}`}>@{props.username}</Link>
+            </h2>
             {props.date && (
               <p className="text-gray-400 text-sm">
                 Last updated: {props.date}
