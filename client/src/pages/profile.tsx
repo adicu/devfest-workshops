@@ -5,7 +5,10 @@ import ProfileMovieTab from '@/components/profile/ProfileMainTab';
 import WelcomeContent from '@/components/WelcomeContent';
 
 export default function Homepage() {
-  const { user } = useUser();
+  const { user, isLoaded } = useUser();
+
+  if (!isLoaded) return null;
+
   return (
     <div>
       <Header />
@@ -14,7 +17,7 @@ export default function Homepage() {
           <title>Profile</title>
         </Head>
         <div>
-          <WelcomeContent name={user?.firstName} />
+          <WelcomeContent name={user!.firstName ?? ''} />
           <ProfileMovieTab />
         </div>
       </div>
