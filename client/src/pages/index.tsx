@@ -1,17 +1,20 @@
-import Head from "next/head";
+import Head from 'next/head';
+import Banner from '@/components/Banner';
+import Body from '@/components/Body';
+import Header from '@/components/Header';
 import MainHeader from "@/components/MainHeader";
+
 
 export default function Homepage() {
   return (
     <div>
       <MainHeader />
       <Head>
-        <title>Next Template</title>
+        <title>FlickPicks</title>
       </Head>
-      <div className="text-center">
-        <h1 className="text-4xl text- font-bold mb-2">Next.js Template</h1>
-        <p>Edit `pages/index.tsx` to see your changes!</p>
-      </div>
+      <Header />
+      <Banner />
+      <Body />
     </div>
   );
 }
