@@ -1,4 +1,6 @@
 import React from "react";
+import { SignedIn, SignedOut, UserButton } from "@clerk/nextjs";
+import Link from "next/link";
 
 const MainHeader = () => {
   return (
@@ -29,7 +31,7 @@ const MainHeader = () => {
                 />{" "}
               </svg>
             </button>
-            <a href="https://adicu.com" className="flex mr-4">
+            <a href="/" className="flex mr-4">
               <img
                 src="/assets/logo.png"
                 className="mr-3 h-8"
@@ -38,19 +40,25 @@ const MainHeader = () => {
             </a>
           </div>
           <div className="flex items-center lg:order-2">
-            <button
-              type="button"
-              className="flex mx-3 text-sm bg-gray-800 rounded-full md:mr-0 focus:ring-4 focus:ring-gray-300 dark:focus:ring-gray-600"
-              id="user-menu-button"
-              aria-expanded="false"
-              data-dropdown-toggle="dropdown"
-            >
-              <img
-                className="w-8 h-8 rounded-full"
-                src="https://ui-avatars.com/api/?name=Tyler+Kim"
-                alt="user photo"
-              ></img>
-            </button>
+            <SignedIn>
+              <UserButton
+                afterSignOutUrl="/"
+                userProfileUrl="/profile"
+                userProfileMode="navigation"
+                appearance={{
+                  elements: {
+                    userButtonTrigger: {
+                      "&:focus": {
+                        boxShadow: "#7857FF 0px 0px 0px 3px",
+                      },
+                    },
+                  },
+                }}
+              />
+            </SignedIn>
+            <SignedOut>
+              <Link href="sign-in">Sign In</Link>
+            </SignedOut>
           </div>
         </div>
       </nav>

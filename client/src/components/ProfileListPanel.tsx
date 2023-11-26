@@ -1,5 +1,4 @@
 import React from "react";
-import SingleMovie from "./SingleMovie";
 import AddListButton from "./AddListButton";
 import SingleList from "./SingleList";
 
