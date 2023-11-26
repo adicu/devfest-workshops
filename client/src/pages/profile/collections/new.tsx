@@ -1,11 +1,11 @@
 import Head from 'next/head';
 import AddCollectionForm from '@/components/profile/AddMovieForm/AddCollectionForm';
-import MainHeader from '@/components/shared/MainHeader';
+import Header from '@/components/shared/Header';
 
 export default function AddMovie() {
   return (
     <div>
-      <MainHeader />
+      <Header />
       <div className="px-2 md:px-64">
         <Head>
           <title>FlickPicks: Add Collection</title>

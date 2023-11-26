@@ -1,18 +1,18 @@
 import Head from 'next/head';
 import { useUser } from '@clerk/nextjs';
-import MainHeader from '@/components/shared/MainHeader';
 import ProfileMovieTab from '@/components/profile/ProfileMainTab';
 import WelcomeContent from '@/components/WelcomeContent';
 import SingleList from '@/components/SingleList';
 import CollectionHeader from '@/components/CollectionHeader';
 import SingleMovie from '@/components/SingleMovie';
+import Header from '@/components/shared/Header';
 
 export default function Homepage() {
   const { user } = useUser();
   console.log(user);
   return (
     <div>
-      <MainHeader />
+      <Header />
       <CollectionHeader
         username="tylertaewook"
         title="💣  Explosive movies "

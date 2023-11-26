@@ -1,8 +1,8 @@
-import { useCallback, useState } from "react";
-import { debounce } from "lodash";
-import Image from "next/image";
-import { Movie, MovieCollectionItem } from "./types";
-import MoviesAPI from "./MoviesAPI";
+import { useCallback, useState } from 'react';
+import { debounce } from 'lodash';
+import Image from 'next/image';
+import { Movie, MovieCollectionItem } from './types';
+import MoviesAPI from './MoviesAPI';
 
 type AddMovieFormProps = {
   onAddMovie?: (newMovie: MovieCollectionItem) => void;
@@ -11,8 +11,8 @@ type AddMovieFormProps = {
 export default function AddMovieForm({
   onAddMovie = () => {},
 }: AddMovieFormProps) {
-  const [name, setName] = useState<string>("");
-  const [review, setReview] = useState<string>("");
+  const [name, setName] = useState<string>('');
+  const [review, setReview] = useState<string>('');
   const [movie, setMovie] = useState<Movie>();
   const [results, setResults] = useState<Movie[]>();
   const [showResults, setShowResults] = useState<boolean>();
@@ -30,7 +30,7 @@ export default function AddMovieForm({
 
   const debouncedSearch = useCallback(
     debounce((nextValue) => doSearch(nextValue), 500),
-    []
+    [],
   );
 
   const handleNameChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -41,7 +41,7 @@ export default function AddMovieForm({
 
   const submit = () => {
     console.log(movie, review);
-    alert("Clicked Add to Profile!");
+    alert('Clicked Add to Profile!');
   };
 
   // TODO: make form changes setName and setReview.
@@ -82,7 +82,11 @@ export default function AddMovieForm({
                     </div>
                     <div className="flex flex-grow flex-col justify-between items-start text-left">
                       <h1 className="font-bold">
-                        {m.title} ({m.release_date.slice(0, 4)})
+                        {m.title}
+                        {' '}
+                        (
+                        {m.release_date.slice(0, 4)}
+                        )
                       </h1>
                       <a
                         target="_blank"
@@ -112,7 +116,7 @@ export default function AddMovieForm({
             type="button"
             onClick={(_) => {
               if (movie) {
-                onAddMovie({ movie: movie, notes: review });
+                onAddMovie({ movie, notes: review });
               }
             }}
             className="py-3 px-4 bg-[#5DAE50] text-white text-xl rounded-xl disabled:bg-gray-400"
