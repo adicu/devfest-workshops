@@ -1,7 +1,7 @@
 /* eslint-disable max-len */
 import React from 'react';
-import MovieList from './MovieList';
-import Movie from './Movie';
+import MovieList from '../shared/MovieList';
+import Movie from '../Movie';
 
 function Body() {
   return (

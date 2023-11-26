@@ -1,6 +1,6 @@
-import React from "react";
-import AddMovieButton from "./AddMovieButton";
-import SingleMovie from "./SingleMovie";
+import React from 'react';
+import AddMovieButton from './AddMovieButton';
+import SingleMovie from '../SingleMovie';
 
 function ProfileMoviesPanel() {
   return (

@@ -1,6 +1,6 @@
 import Head from 'next/head';
-import AddMovieForm from '@/components/AddMovieForm';
-import MainHeader from '@/components/MainHeader';
+import AddMovieForm from '@/components/profile/AddMovieForm';
+import MainHeader from '@/components/shared/MainHeader';
 
 export default function AddMovie() {
   return (

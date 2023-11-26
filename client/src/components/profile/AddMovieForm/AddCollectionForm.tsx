@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { MovieCollectionItem } from "./types";
 import AddMovieForm from "./AddMovieForm";
-import SingleMovie from "../SingleMovie";
+import SingleMovie from "../../SingleMovie";
 
 export default function AddCollectionForm() {
   const [name, setName] = useState<string>("");

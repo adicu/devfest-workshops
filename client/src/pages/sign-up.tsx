@@ -1,5 +1,5 @@
-import { SignUp } from "@clerk/nextjs";
-import MainHeader from "@/components/MainHeader";
+import { SignUp } from '@clerk/nextjs';
+import MainHeader from '@/components/shared/MainHeader';
 
 export default function Signup() {
   return (

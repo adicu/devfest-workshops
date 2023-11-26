@@ -1,6 +1,6 @@
-import Head from "next/head";
-import AddCollectionForm from "@/components/AddMovieForm/AddCollectionForm";
-import MainHeader from "@/components/MainHeader";
+import Head from 'next/head';
+import AddCollectionForm from '@/components/profile/AddMovieForm/AddCollectionForm';
+import MainHeader from '@/components/shared/MainHeader';
 
 export default function AddMovie() {
   return (

@@ -1,8 +1,8 @@
-import MainHeader from "@/components/MainHeader";
-import OtherProfileWelcome from "@/components/OtherProfileWelcome";
-import ProfileMovieTab from "@/components/ProfileMainTab";
-import Head from "next/head";
-import { useRouter } from "next/router";
+import Head from 'next/head';
+import { useRouter } from 'next/router';
+import MainHeader from '@/components/shared/MainHeader';
+import OtherProfileWelcome from '@/components/profile/OtherProfileWelcome';
+import ProfileMovieTab from '@/components/profile/ProfileMainTab';
 
 export default function OtherProfiles() {
   const router = useRouter();
@@ -12,7 +12,10 @@ export default function OtherProfiles() {
       <MainHeader />
       <div className="px-2 md:px-64">
         <Head>
-          <title>{id}'s Profile</title>
+          <title>
+            {id}
+            's Profile
+          </title>
         </Head>
         <div>
           <OtherProfileWelcome name={id} />

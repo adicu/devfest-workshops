@@ -1,5 +1,5 @@
-import { RedirectToSignIn, SignIn } from "@clerk/nextjs";
-import MainHeader from "@/components/MainHeader";
+import { SignIn } from '@clerk/nextjs';
+import MainHeader from '@/components/shared/MainHeader';
 
 export default function Signin() {
   return (

@@ -1,8 +1,8 @@
-import Head from "next/head";
-import MainHeader from "@/components/MainHeader";
-import { useUser } from "@clerk/nextjs";
-import ProfileMovieTab from "@/components/ProfileMainTab";
-import WelcomeContent from "@/components/WelcomeContent";
+import Head from 'next/head';
+import { useUser } from '@clerk/nextjs';
+import MainHeader from '@/components/shared/MainHeader';
+import ProfileMovieTab from '@/components/profile/ProfileMainTab';
+import WelcomeContent from '@/components/WelcomeContent';
 
 export default function Homepage() {
   const { user } = useUser();
