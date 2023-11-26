@@ -3,11 +3,11 @@ import React from 'react';
 
 function MovieList() {
   return (
-    <div className="flex flex-wrap text-14 pb-20">
-      <div className="basis-1/4">
+    <div className="flex flex-wrap text-sm pb-20">
+      <div className="lg:basis-1/6 basis-1/4">
         <img src="listcover.png" alt="compilation of four movie posters in a rectangular grid" />
       </div>
-      <div className="basis-3/4 lg:pl-5 xs:pl-3 sm:pl-3 md:pl-3">
+      <div className="basis-3/4 pl-3 ">
         <div className="flex items-bottom">
           <h1 className="text-lg font-bold pr-2">whoa there&apos;s a lot of fire in here</h1>
           <h1 className="text-sm justify-self-end self-center">Last updated 26 July 2023</h1>

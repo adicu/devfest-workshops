@@ -4,10 +4,10 @@ import React from 'react';
 function Movie() {
   return (
     <div className="flex text-base pb-20">
-      <div className="basis-3/5 w-full sm:w-2/3 md:w-1/2 lg:w-1/3 xl:w-1/4">
+      <div className="basis-1/4 lg:w-full">
         <img src="omgitsspiderman.png" alt="poster for Spiderman: Into the Spiderverse" />
       </div>
-      <div className="basis-2/5 pl-3">
+      <div className="basis-3/4 pl-3">
         <h1 className="font-bold text-sm">Spider-man: Into the Spider-verse (2019)</h1>
         <div className="flex items-bottom">
           <div className="basis-1/2">

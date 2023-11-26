@@ -11,8 +11,8 @@ function Banner() {
             <p className="text-16 pb-5">The best discoveries come from people who share your taste. FlickPicks lets you make and share lists of movies with like-minded moviegoers from around the world. </p>
           </div>
           <div className="flex items-center">
-            <button type="button" className="flex-none text-base bg-green-500 text-white py-2 px-4 rounded-2xl no-underline font-bold inline">Join the Community</button>
-            <p className="text-14 ml-5 text-center font-bold underline">or browse community lists</p>
+            <button type="button" className="flex-none text-sm bg-green-500 text-white py-2 px-4 rounded-2xl no-underline font-bold inline">Join the Community</button>
+            <p className="text-sm ml-5 text-center font-bold underline">or browse community lists</p>
           </div>
         </div>
         <div className="hidden lg:block lg:basis-1/3">

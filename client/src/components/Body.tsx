@@ -12,7 +12,7 @@ function Body() {
         <MovieList />
         <MovieList />
       </div>
-      <div className="basis-1/4 pl-3">
+      <div className="lg:basis-1/4 lg:pl-3">
         <h1 className="text-xl font-bold mb-2">Recent Reviews</h1>
         <Movie />
         <Movie />
