@@ -6,8 +6,8 @@ from typing import Optional
 
 
 class User(Document):
+    id: str
     name: str
-    clerk_id: Indexed(str) # type: ignore
     created_at: Optional[datetime] = None
     updated_at: Optional[datetime] = None
 

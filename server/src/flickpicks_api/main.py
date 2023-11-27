@@ -15,7 +15,7 @@ from flickpicks_api.auth import jwt_auth
 
 
 origins = [
-    "https://flickpicks.vercel.app", # TODO: Change this to the actual domain
+    "https://flickpicks.vercel.app",  # TODO: Change this to the actual domain
     "http://localhost",
     "http://localhost:3000",
 ]
@@ -31,6 +31,26 @@ app.add_middleware(
     allow_methods=["*"],
     allow_headers=["*"],
 )
+
+
+# TODO: finish this function.
+@app.post("/movies/create", response_model=Movie)
+async def create_movie(tmdb_id: str, user: User = Depends(jwt_auth)):
+    username = os.environ.get("MONGO_USER")
+    password = os.environ.get("MONGO_PASSWORD")
+
+    client = motor.motor_asyncio.AsyncIOMotorClient(
+        f"mongodb+srv://{username}:{password}@{os.environ['MONGO_URI']}"
+    )
+    await init_beanie(
+        database=client["FlickPicks"], document_models=[User, Movie, MovieList]  # type: ignore
+    )
+
+    # TODO: Fetch movie from TMDB
+
+    # TODO: Create a movie object
+
+    # TODO: Save movie to database
 
 
 @app.post("/users/create", response_model=User)
@@ -81,7 +101,7 @@ async def create_user(user_payload: dict, request: Request):
     name = user_payload["first_name"] + " " + user_payload["last_name"]
     user_id: str = user_payload["id"]
 
-    new_user = User(name=name, clerk_id=user_id)
+    new_user = User(name=name, id=user_id)
     # # print(new_user)
     await new_user.save()
     return new_user

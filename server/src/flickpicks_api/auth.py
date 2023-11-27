@@ -7,22 +7,26 @@ from datetime import datetime, timezone
 from pydantic import BaseModel
 import httpx
 
+
 from fastapi import Depends, HTTPException, status, Request
 
 from flickpicks_api.jwks import verify_token
+from flickpicks_api.model import User
 
 backend_key = os.environ.get("CLERK_BACKEND_API_KEY")
 
 
-async def fetch_user(user_id: str, authorization: str):
-    # Fetch user from Clerk API
-    async with httpx.AsyncClient() as client:
-        user = await client.get(
-            "https://api.clerk.dev/v1/users/" + user_id,
-            headers={"Authorization": f"Bearer {backend_key}"},
+async def fetch_user(clerk_id: str) -> User:
+    # Fetch user from MongoDB
+    user = await User.get(document_id=clerk_id)
+    print(user)
+    if not user:
+        raise HTTPException(
+            status_code=status.HTTP_404_NOT_FOUND,
+            detail="User not found",
         )
-        user.raise_for_status()
-        return user.json()
+
+    return user
 
 
 async def jwt_auth(
@@ -42,9 +46,7 @@ async def jwt_auth(
         print(payload)
 
         # Fetch user from Clerk API
-        user = await fetch_user(payload["sub"], authorization)
-
-        print(user)
+        user = await fetch_user(payload["sub"])
 
         return user  # Or extract specific user data from payload
 
