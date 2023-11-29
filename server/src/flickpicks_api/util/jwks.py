@@ -1,6 +1,5 @@
 import httpx
 from jose import jwt, jwk
-from jose.utils import base64url_decode
 
 
 async def fetch_jwks(uri: str):
