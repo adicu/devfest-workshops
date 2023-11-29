@@ -18,7 +18,7 @@ async def fetch_user(clerk_id: str) -> User:
     return user
 
 
-async def jwt_auth(
+async def current_user(
     request: Request,
     jwks_uri: str = CONFIG.clerk_jwks_uri,
 ) -> User:

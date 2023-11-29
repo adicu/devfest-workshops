@@ -6,7 +6,7 @@ import httpx
 
 from flickpicks_api.models.movie import Movie
 from flickpicks_api.models.user import User
-from flickpicks_api.auth import jwt_auth
+from flickpicks_api.auth import current_user
 
 router = APIRouter(prefix="/movies", tags=["movies"])
 
@@ -17,7 +17,7 @@ class MovieRequest(BaseModel):
 
 
 @router.post("/create", response_model=Movie)
-async def create_movie(request: MovieRequest, user: User = Depends(jwt_auth)):
+async def create_movie(request: MovieRequest, user: User = Depends(current_user)):
     async with httpx.AsyncClient() as client:
         movie = await client.get(
             "tmdbapi.com/id" + request.tmdb_id

@@ -8,7 +8,7 @@ from beanie import PydanticObjectId
 
 from flickpicks_api.models.user import User
 from flickpicks_api.models.list import MovieList
-from flickpicks_api.auth import jwt_auth
+from flickpicks_api.auth import current_user
 
 router = APIRouter(prefix="/lists", tags=["lists"])
 
@@ -27,7 +27,7 @@ class UpdateListRequest(BaseModel):
 
 
 @router.post("/create", response_model=MovieList)
-async def create_list(request: CreateListRequest, user: User = Depends(jwt_auth)):
+async def create_list(request: CreateListRequest, user: User = Depends(current_user)):
     movie_list = MovieList(
         name=request.name,
         description=request.description,
@@ -40,7 +40,7 @@ async def create_list(request: CreateListRequest, user: User = Depends(jwt_auth)
 
 
 @router.post("/update", response_model=MovieList)
-async def update_list(request: UpdateListRequest, user: User = Depends(jwt_auth)):
+async def update_list(request: UpdateListRequest, user: User = Depends(current_user)):
     if not request.name and not request.description and not request.movie_ids:
         raise HTTPException(status.HTTP_400, "Please specify a field to update.")
 
