@@ -7,9 +7,9 @@ from typing import Optional
 
 class Movie(Document):
     # Info copied from TMDB
-    name: str
+    title: str
     review: str
-    year: int
+    release_date: str
 
     tmdb_id: str
 
