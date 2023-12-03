@@ -28,6 +28,14 @@ class UpdateListRequest(BaseModel):
 
 @router.post("/create", response_model=MovieList)
 async def create_list(request: CreateListRequest, user: User = Depends(current_user)):
+    movie_list = await MovieList.find_one({"name": request.name})
+    if movie_list:
+        raise HTTPException(
+            status.HTTP_400_BAD_REQUEST,
+            f"Movie list with name ({request.name}) already exists.",
+        )
+
+
     movie_list = MovieList(
         name=request.name,
         description=request.description,
@@ -35,8 +43,8 @@ async def create_list(request: CreateListRequest, user: User = Depends(current_u
         creator_id=user.id,
     )
 
-    doc = await movie_list.save()
-    return doc
+    await movie_list.save()
+    return movie_list
 
 
 @router.post("/update", response_model=MovieList)

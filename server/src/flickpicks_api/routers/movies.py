@@ -37,7 +37,18 @@ async def fetch_from_tmdb(tmdb_id: str) -> TMDBMovie:
         )  # Replace with actual TMDB API call
         movie = movie.json()
 
-        return movie
+        if "status_code" in movie:
+            raise HTTPException(
+                status.HTTP_400_BAD_REQUEST,
+                "Movie not found in TMDB database.",
+            )
+
+        return TMDBMovie(
+            id=movie["id"],
+            poster_path=movie["poster_path"],
+            title=movie["title"],
+            release_date=movie["release_date"],
+        )
 
 
 @router.post("/create", response_model=Movie)
@@ -65,3 +76,11 @@ async def get_movie(movie_id: str):
         raise HTTPException(status.HTTP_404_NOT_FOUND, "Movie review not found")
 
     return document
+
+
+# Get movies by user.
+@router.get("/user/{user_id}", response_model=list[Movie])
+async def get_movies_by_user(user_id: str):
+    documents = await Movie.find({"creator_id": user_id}).to_list(length=100)
+
+    return documents

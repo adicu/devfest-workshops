@@ -11,7 +11,7 @@ from contextlib import asynccontextmanager
 from flickpicks_api.models.user import User
 from flickpicks_api.models.movie import Movie
 from flickpicks_api.models.list import MovieList
-from flickpicks_api.routers import users, movies
+from flickpicks_api.routers import users, movies, lists
 from flickpicks_api.config import CONFIG
 
 
@@ -43,6 +43,7 @@ app.add_middleware(
 
 app.include_router(users.router)
 app.include_router(movies.router)
+app.include_router(lists.router)
 
 
 def serve_dev():
