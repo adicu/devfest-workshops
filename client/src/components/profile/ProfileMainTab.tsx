@@ -46,8 +46,4 @@ function ProfileMovieTab({ userId }: { userId: string }) {
   );
 }
 
-function Lists() {
-  return <div>Render list component here</div>;
-}
-
 export default ProfileMovieTab;

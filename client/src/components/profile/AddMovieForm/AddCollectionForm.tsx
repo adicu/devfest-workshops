@@ -1,10 +1,10 @@
-import { useState } from "react";
-import { MovieCollectionItem } from "./types";
-import AddMovieForm from "./AddMovieForm";
-import SingleMovie from "../../SingleMovie";
+import { useState } from 'react';
+import { MovieCollectionItem } from './types';
+import AddMovieForm from './AddMovieForm';
+import SingleMovie from '../../SingleMovie';
 
 export default function AddCollectionForm() {
-  const [name, setName] = useState<string>("");
+  const [name, setName] = useState<string>('');
   const [movies, setMovies] = useState<MovieCollectionItem[]>();
   const [isOverlayOpen, setIsOverlayOpen] = useState(false);
 
@@ -26,7 +26,7 @@ export default function AddCollectionForm() {
   };
 
   const deleteMovie = (index: number) => {
-    console.log("deleting movie at index", index);
+    console.log('deleting movie at index', index);
     if (movies) {
       setMovies(movies.filter((_, i) => i !== index));
     }
@@ -40,7 +40,7 @@ export default function AddCollectionForm() {
   const submitList = () => {
     // TODO: show collection object
     console.log(movies);
-    alert("Clicked SaveList!");
+    alert('Clicked SaveList!');
   };
 
   // TODO: make form changes setName and setReview.
@@ -65,15 +65,15 @@ export default function AddCollectionForm() {
         </div>
 
         <div className="space-y-6 p-4 w-full">
-          {movies &&
-            movies.map((m, index) => (
+          {movies
+            && movies.map((m, index) => (
               <div className="w-full">
                 <SingleMovie
-                  key={index}
+                  key={m.movie.id}
                   title={m.movie.title}
                   description={m.notes}
                   image={m.movie.poster_path}
-                  date={""}
+                  date=""
                   onDeleteMovie={() => deleteMovie(index)}
                   width={20}
                   maxLines={2}
@@ -87,10 +87,10 @@ export default function AddCollectionForm() {
             type="button"
             onClick={openOverlay}
             style={{
-              borderColor: "#5DAE50",
-              color: "#5DAE50",
-              backgroundColor: "white",
-              borderWidth: "2px",
+              borderColor: '#5DAE50',
+              color: '#5DAE50',
+              backgroundColor: 'white',
+              borderWidth: '2px',
             }}
             className="py-3 px-4 text-xl rounded-xl"
           >
@@ -111,7 +111,7 @@ export default function AddCollectionForm() {
           <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center">
             <div className="bg-white p-8 rounded-xl">
               <div className="text-right">
-                <button onClick={closeOverlay} className="text-gray-500">
+                <button type="button" onClick={closeOverlay} className="text-gray-500">
                   Cancel
                 </button>
               </div>

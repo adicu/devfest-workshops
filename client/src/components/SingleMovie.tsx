@@ -1,6 +1,6 @@
-import React from "react";
-import Image from "next/image";
-import { FiEdit, FiTrash2 } from "react-icons/fi";
+import React from 'react';
+import Image from 'next/image';
+import { FiEdit, FiTrash2 } from 'react-icons/fi';
 
 type SingleMovieProps = {
   title: string;
@@ -12,12 +12,12 @@ type SingleMovieProps = {
   maxLines?: number;
 };
 
-const SingleMovie = (props: SingleMovieProps) => {
+function SingleMovie(props: SingleMovieProps) {
   return (
     <div className="flex bg-white p-4 space-x-4 rounded-lg shadow-md w-full mx-auto">
       <Image
         className={`rounded-t-lg object-cover h-full ${
-          props.width ? `w-${props.width}` : "w-40"
+          props.width ? `w-${props.width}` : 'w-40'
         }`}
         src={`https://image.tmdb.org/t/p/w200${props.image}`}
         alt={`Poster for ${props.title}`}
@@ -31,7 +31,9 @@ const SingleMovie = (props: SingleMovieProps) => {
             <h2 className="text-xl font-bold">{props.title}</h2>
             {props.date && (
               <p className="text-gray-400 text-sm">
-                Last updated: {props.date}
+                Last updated:
+                {' '}
+                {props.date}
               </p>
             )}
           </div>
@@ -40,6 +42,7 @@ const SingleMovie = (props: SingleMovieProps) => {
             {props.onDeleteMovie && (
               <div className="flex h-8 items-center">
                 <button
+                  type="button"
                   className="bg-white text-red-500 mx-1 px-1 py-1 rounded hover:bg-red-600 hover:text-white"
                   onClick={props.onDeleteMovie}
                 >
@@ -56,7 +59,7 @@ const SingleMovie = (props: SingleMovieProps) => {
         </div>
         <div
           className={`line-clamp-${
-            props.maxLines ? `${props.maxLines}` : `6`
+            props.maxLines ? `${props.maxLines}` : '6'
           } overflow-hidden`}
         >
           <p className="mt-2 overflow-ellipsis">{props.description}</p>
@@ -64,6 +67,6 @@ const SingleMovie = (props: SingleMovieProps) => {
       </div>
     </div>
   );
-};
+}
 
 export default SingleMovie;

@@ -5,7 +5,7 @@ import { Movie, MovieCollectionItem } from './types';
 import MoviesAPI from './MoviesAPI';
 
 type AddMovieFormProps = {
-  onAddMovie?: (newMovie: MovieCollectionItem) => void;
+  onAddMovie: (newMovie: MovieCollectionItem) => void;
 };
 
 export default function AddMovieForm({

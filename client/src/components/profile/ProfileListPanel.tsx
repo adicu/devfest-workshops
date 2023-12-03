@@ -33,9 +33,9 @@ function ProfileListPanel({ userId }: { userId: string }) {
             // image={list.image}
             date={formatTimestamp(list.created_at)}
             movies={list.movie_ids
-              // eslint-disable-next-line no-underscore-dangle
               .map((movieId) => {
-                const movie = movies!.find((movie) => movie._id === movieId)!;
+                // eslint-disable-next-line no-underscore-dangle
+                const movie = movies!.find((m) => m._id === movieId)!;
                 return `${movie.title} (${movie.release_date.substring(0, 4)})`;
               })}
           />

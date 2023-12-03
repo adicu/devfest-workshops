@@ -1,15 +1,19 @@
-import React from "react";
+import React from 'react';
 
-type OtherProfileWelcome = {
+type OtherProfileWelcomeProps = {
   name: string;
 };
 
-const OtherProfileWelcome = (props: OtherProfileWelcome) => {
+function OtherProfileWelcome({ name }: OtherProfileWelcomeProps) {
   return (
     <div className="mb-4">
-      <h1 className="text-3xl font-bold">Welcome to {props.name}'s page :)</h1>
+      <h1 className="text-3xl font-bold">
+        Welcome to
+        {name}
+        &apos;s page :)
+      </h1>
     </div>
   );
-};
+}
 
 export default OtherProfileWelcome;
