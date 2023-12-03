@@ -81,6 +81,7 @@ async def update_list(request: UpdateListRequest, user: User = Depends(current_u
     return document
 
 
+# TODO: enrich this result with movie data.
 @router.get("/all", response_model=list[MovieList])
 async def get_all_lists():
     "Return all movie lists, from newest to oldest."

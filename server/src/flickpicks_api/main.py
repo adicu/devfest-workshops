@@ -1,12 +1,9 @@
+from contextlib import asynccontextmanager
+
 from fastapi import FastAPI
 import motor.motor_asyncio
 from beanie import init_beanie
-
-# import modal
 from fastapi.middleware.cors import CORSMiddleware
-
-from contextlib import asynccontextmanager
-
 
 from flickpicks_api.models.user import User
 from flickpicks_api.models.movie import Movie
@@ -49,13 +46,7 @@ app.include_router(lists.router)
 def serve_dev():
     import uvicorn
 
-    uvicorn.run(
-        "flickpicks_api.main:app",
-        host="0.0.0.0",
-        port=8000,
-        reload=True,
-        log_level="debug",
-    )
+    uvicorn.run("flickpicks_api.main:app", host="0.0.0.0", port=8000, reload=True)
 
 
 def serve_prod():

@@ -9,7 +9,6 @@ dependencies = [
     "uvicorn",
     "python-jose[cryptography]",
     "httpx",
-    "modal-client",
     "Svix",
     "python-dotenv",
 ]
