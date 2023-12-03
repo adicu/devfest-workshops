@@ -42,13 +42,16 @@ async def create_list(request: CreateListRequest, user: User = Depends(current_u
 @router.post("/update", response_model=MovieList)
 async def update_list(request: UpdateListRequest, user: User = Depends(current_user)):
     if not request.name and not request.description and not request.movie_ids:
-        raise HTTPException(status.HTTP_400, "Please specify a field to update.")
+        raise HTTPException(
+            status.HTTP_400_BAD_REQUEST, "Please specify a field to update."
+        )
 
     document = await MovieList.get(request.list_id)
 
     if not document:
         raise HTTPException(
-            status.HTTP_404, f"Movie list with id ({request.list_id}) was not found."
+            status.HTTP_404_NOT_FOUND,
+            f"Movie list with id ({request.list_id}) was not found.",
         )
 
     if user.id != document.creator_id:
@@ -77,7 +80,7 @@ async def get_list(list_id: str):
 
     if not document:
         raise HTTPException(
-            status.HTTP_404, f"Movie list with id ({list_id}) was not found."
+            status.HTTP_404_NOT_FOUND, f"Movie list with id ({list_id}) was not found."
         )
 
     return document

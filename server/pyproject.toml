@@ -11,7 +11,9 @@ dependencies = [
     "httpx",
     "modal-client",
     "Svix",
+    "python-dotenv",
 ]
 
 [project.scripts]
-start_dev_api = "flickpicks_api.main:start"
+serve_dev_api = "flickpicks_api.main:serve_dev"
+serve_prod_api = "flickpicks_api.main:serve_prod"

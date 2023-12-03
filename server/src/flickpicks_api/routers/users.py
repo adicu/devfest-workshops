@@ -2,11 +2,12 @@
 
 import os
 
-from fastapi import APIRouter, Request, HTTPException, status
+from fastapi import APIRouter, Request, HTTPException, status, Depends
 from svix import Webhook
 
 from flickpicks_api.models.user import User
 from flickpicks_api.config import CONFIG
+from flickpicks_api.auth import current_user
 
 
 router = APIRouter(prefix="/users", tags=["users"])
@@ -64,9 +65,15 @@ async def create_user(user_payload: dict, request: Request):
 
 @router.get("/{user_id}", response_model=User)
 async def get_user(user_id: str):
+    print(user_id)
     document = await User.get(user_id)
 
     if not document:
-        raise HTTPException(status.HTTP_404, "User not found")
+        raise HTTPException(status.HTTP_404_NOT_FOUND, "User not found")
 
     return document
+
+
+@router.get("/me/info", response_model=User)
+async def me(user: User = Depends(current_user)):
+    return user

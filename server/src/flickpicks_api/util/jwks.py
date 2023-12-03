@@ -26,7 +26,8 @@ async def verify_token(token: str, jwks_uri: str):
 
     if public_key:
         # Decode the JWT
-        payload = jwt.decode(token, public_key, algorithms=["RS256"])
+        # TODO: remove this verify_exp line for production.
+        payload = jwt.decode(token, public_key, options={"verify_exp": False})
         return payload
     else:
         raise Exception("Public key not found in JWKS.")

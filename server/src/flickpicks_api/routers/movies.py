@@ -62,6 +62,6 @@ async def get_movie(movie_id: str):
     document = await Movie.get(movie_id)
 
     if not document:
-        raise HTTPException(status.HTTP_404, "Movie review not found")
+        raise HTTPException(status.HTTP_404_NOT_FOUND, "Movie review not found")
 
     return document

@@ -1,8 +1,12 @@
 from fastapi import FastAPI
 import motor.motor_asyncio
 from beanie import init_beanie
-import modal
+
+# import modal
 from fastapi.middleware.cors import CORSMiddleware
+
+from contextlib import asynccontextmanager
+
 
 from flickpicks_api.models.user import User
 from flickpicks_api.models.movie import Movie
@@ -17,7 +21,17 @@ origins = [
     "http://localhost:3000",
 ]
 
-app = FastAPI()
+
+@asynccontextmanager
+async def lifespan(app: FastAPI):
+    client = motor.motor_asyncio.AsyncIOMotorClient(CONFIG.mongo_uri)
+    await init_beanie(
+        database=client["FlickPicks"], document_models=[User, Movie, MovieList]  # type: ignore
+    )
+    yield
+
+
+app = FastAPI(lifespan=lifespan)
 
 app.add_middleware(
     CORSMiddleware,
@@ -31,18 +45,19 @@ app.include_router(users.router)
 app.include_router(movies.router)
 
 
-image = modal.Image.debian_slim().pip_install_from_pyproject(
-    pyproject_toml="./pyproject.toml"
-)
-stub = modal.Stub()
+def serve_dev():
+    import uvicorn
 
-
-@stub.function(image=image, secret=modal.Secret.from_name("flickpicks-secrets"))
-@modal.asgi_app()
-async def fastapi_app():
-    client = motor.motor_asyncio.AsyncIOMotorClient(CONFIG.mongo_uri)
-    await init_beanie(
-        database=client["FlickPicks"], document_models=[User, Movie, MovieList]  # type: ignore
+    uvicorn.run(
+        "flickpicks_api.main:app",
+        host="0.0.0.0",
+        port=8000,
+        reload=True,
+        log_level="debug",
     )
 
-    return app
+
+def serve_prod():
+    import uvicorn
+
+    uvicorn.run(app, host="0.0.0.0", port=8080)

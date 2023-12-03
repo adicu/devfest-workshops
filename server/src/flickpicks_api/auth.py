@@ -8,11 +8,10 @@ from flickpicks_api.config import CONFIG
 async def fetch_user(clerk_id: str) -> User:
     """Fetch user from MongoDB"""
     user = await User.get(document_id=clerk_id)
-    print(user)
     if not user:
         raise HTTPException(
             status_code=status.HTTP_404_NOT_FOUND,
-            detail="User not found",
+            detail="User not found in database.",
         )
 
     return user
@@ -34,6 +33,7 @@ async def current_user(
         payload = await verify_token(token, jwks_uri)
         user = await fetch_user(payload["sub"])
         return user
+    except HTTPException as e:
+        raise e
     except Exception as e:
-        print(e)
         raise HTTPException(status_code=status.HTTP_401_UNAUTHORIZED, detail=str(e))
