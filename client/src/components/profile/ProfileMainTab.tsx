@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import ProfileMoviesPanel from './ProfileMoviesPanel';
 import ProfileListPanel from './ProfileListPanel';
 
-function ProfileMovieTab() {
+function ProfileMovieTab({ userId }: { userId: string }) {
   const [selectedTab, setSelectedTab] = useState<'movies' | 'list'>('movies');
 
   const handleTabChange = (tabName: 'movies' | 'list') => {
@@ -37,9 +37,9 @@ function ProfileMovieTab() {
       </div>
       <div className="mt-4">
         {selectedTab === 'movies' ? (
-          <ProfileMoviesPanel />
+          <ProfileMoviesPanel userId={userId} />
         ) : (
-          <ProfileListPanel />
+          <ProfileListPanel userId={userId} />
         )}
       </div>
     </div>

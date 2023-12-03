@@ -6,6 +6,8 @@ from fastapi import APIRouter, Request, HTTPException, status, Depends
 from svix import Webhook
 
 from flickpicks_api.models.user import User
+from flickpicks_api.models.movie import Movie
+from flickpicks_api.models.list import MovieList
 from flickpicks_api.config import CONFIG
 from flickpicks_api.auth import current_user
 
@@ -77,3 +79,24 @@ async def get_user(user_id: str):
         raise HTTPException(status.HTTP_404_NOT_FOUND, "User not found")
 
     return document
+
+
+# Get movies by user.
+@router.get("/{user_id}/movies", response_model=list[Movie])
+async def get_movies_by_user(user_id: str):
+    documents = await Movie.find({"creator_id": user_id}).to_list(length=100)
+
+    return documents
+
+
+@router.get("/{user_id}/lists", response_model=list[MovieList])
+async def get_lists_by_user(user_id: str):
+    documents = await MovieList.find({"creator_id": user_id}).to_list(None)
+
+    if not documents:
+        raise HTTPException(
+            status.HTTP_404_NOT_FOUND,
+            f"Movie lists with creator_id ({user_id}) were not found.",
+        )
+
+    return documents

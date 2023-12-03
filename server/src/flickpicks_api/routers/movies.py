@@ -78,9 +78,3 @@ async def get_movie(movie_id: str):
     return document
 
 
-# Get movies by user.
-@router.get("/user/{user_id}", response_model=list[Movie])
-async def get_movies_by_user(user_id: str):
-    documents = await Movie.find({"creator_id": user_id}).to_list(length=100)
-
-    return documents

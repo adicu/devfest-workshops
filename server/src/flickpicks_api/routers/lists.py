@@ -93,14 +93,3 @@ async def get_list(list_id: str):
     return document
 
 
-@router.get("/user/{user_id}", response_model=list[MovieList])
-async def get_lists_by_user(user_id: str):
-    documents = await MovieList.find({"creator_id": user_id}).to_list(None)
-
-    if not documents:
-        raise HTTPException(
-            status.HTTP_404_NOT_FOUND,
-            f"Movie lists with creator_id ({user_id}) were not found.",
-        )
-
-    return documents

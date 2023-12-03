@@ -2,7 +2,7 @@ import React from 'react';
 import AddListButton from './AddListButton';
 import SingleList from '../SingleList';
 
-function ProfileListPanel() {
+function ProfileListPanel({ userId }: { userId: string }) {
   return (
     <div className="space-y-6">
       <AddListButton />
