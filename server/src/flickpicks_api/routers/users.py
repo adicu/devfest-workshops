@@ -63,6 +63,11 @@ async def create_user(user_payload: dict, request: Request):
     return new_user
 
 
+@router.get("/me", response_model=User)
+async def me(user: User = Depends(current_user)):
+    return user
+
+
 @router.get("/{user_id}", response_model=User)
 async def get_user(user_id: str):
     print(user_id)
@@ -72,8 +77,3 @@ async def get_user(user_id: str):
         raise HTTPException(status.HTTP_404_NOT_FOUND, "User not found")
 
     return document
-
-
-@router.get("/me/info", response_model=User)
-async def me(user: User = Depends(current_user)):
-    return user
