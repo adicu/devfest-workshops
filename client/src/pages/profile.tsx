@@ -18,7 +18,7 @@ export default function Homepage() {
         </Head>
         <div>
           <WelcomeContent name={user!.firstName ?? ''} />
-          <ProfileMovieTab />
+          <ProfileMovieTab userId={user!.id} />
         </div>
       </div>
     </div>
