@@ -68,6 +68,19 @@ async def create_movie(request: MovieRequest, user: User = Depends(current_user)
     return document
 
 
+@router.get("/recent", response_model=list[Movie])
+async def recent_reviews():
+    "Return the 10 most recent movie reviews."
+    documents = await Movie.all().sort(-Movie.created_at).limit(10).to_list()  # type: ignore
+
+    print(documents)
+
+    if not documents:
+        raise HTTPException(status.HTTP_404_NOT_FOUND, "Movie reviews not found")
+
+    return documents
+
+
 @router.get("/{movie_id}", response_model=Movie)
 async def get_movie(movie_id: str):
     document = await Movie.get(movie_id)
@@ -76,5 +89,3 @@ async def get_movie(movie_id: str):
         raise HTTPException(status.HTTP_404_NOT_FOUND, "Movie review not found")
 
     return document
-
-

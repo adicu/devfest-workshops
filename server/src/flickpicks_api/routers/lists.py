@@ -81,6 +81,17 @@ async def update_list(request: UpdateListRequest, user: User = Depends(current_u
     return document
 
 
+@router.get("/all", response_model=list[MovieList])
+async def get_all_lists():
+    "Return all movie lists, from newest to oldest."
+    documents = await MovieList.all().sort(-MovieList.created_at).to_list(None)  # type: ignore
+
+    if not documents:
+        raise HTTPException(status.HTTP_404_NOT_FOUND, f"Movie lists were not found.")
+
+    return documents
+
+
 @router.get("/{list_id}", response_model=MovieList)
 async def get_list(list_id: str):
     document = await MovieList.get(list_id)
@@ -91,5 +102,3 @@ async def get_list(list_id: str):
         )
 
     return document
-
-
