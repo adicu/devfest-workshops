@@ -1,10 +1,8 @@
-import { RedirectToSignIn, SignIn } from "@clerk/nextjs";
-import MainHeader from "@/components/MainHeader";
+import { SignIn } from '@clerk/nextjs';
 
 export default function Signin() {
   return (
     <div>
-      <MainHeader />
       <div className="flex justify-center py-24">
         <SignIn />
       </div>

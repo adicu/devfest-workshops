@@ -1,0 +1,8 @@
+services:
+  app:
+    build: .
+    volumes:
+      - ./:/app
+    command: serve_dev_api
+    ports:
+      - "8000:8000"

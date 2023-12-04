@@ -1,0 +1,18 @@
+[project]
+name = "flickpicks_api"
+version = "0.1"
+dependencies = [
+    "beanie",
+    "fastapi",
+    "motor",
+    "pydantic",
+    "uvicorn",
+    "python-jose[cryptography]",
+    "httpx",
+    "Svix",
+    "python-dotenv",
+]
+
+[project.scripts]
+serve_dev_api = "flickpicks_api.main:serve_dev"
+serve_prod_api = "flickpicks_api.main:serve_prod"

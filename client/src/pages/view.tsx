@@ -1,30 +1,28 @@
-import Head from "next/head";
-import MainHeader from "@/components/MainHeader";
-import { useUser } from "@clerk/nextjs";
-import ProfileMovieTab from "@/components/ProfileMainTab";
-import WelcomeContent from "@/components/WelcomeContent";
-import SingleList from "@/components/SingleList";
-import CollectionHeader from "@/components/CollectionHeader";
-import SingleMovie from "@/components/SingleMovie";
+import Head from 'next/head';
+import { useUser } from '@clerk/nextjs';
+import ProfileMovieTab from '@/components/profile/ProfileMainTab';
+import WelcomeContent from '@/components/WelcomeContent';
+import SingleList from '@/components/SingleList';
+import CollectionHeader from '@/components/CollectionHeader';
+import SingleMovie from '@/components/SingleMovie';
+import Header from '@/components/shared/Header';
 
 export default function Homepage() {
   const { user } = useUser();
   console.log(user);
   return (
     <div>
-      <MainHeader />
+      <Header />
       <CollectionHeader
-        username={"tylertaewook"}
-        title={"💣  Explosive movies "}
-        description={
-          "Action, explosions, and drama -- these movies are FIRE 🔥 , both metaphorically and literally. Hav..."
-        }
-        image={"movielist"}
-        date={"26 Jun 2022"}
+        username="tylertaewook"
+        title="💣  Explosive movies "
+        description="Action, explosions, and drama -- these movies are FIRE 🔥 , both metaphorically and literally. Hav..."
+        image="movielist"
+        date="26 Jun 2022"
         movies={[
-          "Benediction (2023)",
-          "Chip n Dale (2022)",
-          "Fire Island (2022)",
+          'Benediction (2023)',
+          'Chip n Dale (2022)',
+          'Fire Island (2022)',
         ]}
       />
       <div className="px-2 md:px-64">
