@@ -59,10 +59,9 @@ async def create_user(user_payload: dict, request: Request):
     name = user_payload["first_name"] + " " + user_payload["last_name"]
     user_id: str = user_payload["id"]
 
-    new_user = User(name=name, id=user_id)
-    await new_user.save()
+    # --(1)-- create and save the new user
 
-    return new_user
+    return "--(2)--"
 
 
 @router.get("/me", response_model=User)
@@ -70,7 +69,7 @@ async def me(user: User = Depends(current_user)):
     return user
 
 
-@router.get("/{user_id}", response_model=User)
+@router.get("--(3)--", response_model=User)
 async def get_user(user_id: str):
     print(user_id)
     document = await User.get(user_id)
@@ -84,7 +83,7 @@ async def get_user(user_id: str):
 # Get movies by user.
 @router.get("/{user_id}/movies", response_model=list[Movie])
 async def get_movies_by_user(user_id: str):
-    documents = await Movie.find({"creator_id": user_id}).to_list(length=100)
+    documents = "--(4)--"
 
     return documents
 
@@ -94,9 +93,6 @@ async def get_lists_by_user(user_id: str):
     documents = await MovieList.find({"creator_id": user_id}).to_list(None)
 
     if not documents:
-        raise HTTPException(
-            status.HTTP_404_NOT_FOUND,
-            f"Movie lists with creator_id ({user_id}) were not found.",
-        )
+        "--(5)--"
 
     return documents

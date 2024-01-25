@@ -21,7 +21,7 @@ origins = [
 
 @asynccontextmanager
 async def lifespan(app: FastAPI):
-    client = motor.motor_asyncio.AsyncIOMotorClient(CONFIG.mongo_uri)
+    client = "--(1)--"
     await init_beanie(
         database=client["FlickPicks"], document_models=[User, Movie, MovieList]  # type: ignore
     )

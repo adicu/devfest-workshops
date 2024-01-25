@@ -53,7 +53,7 @@ async def fetch_from_tmdb(tmdb_id: str) -> TMDBMovie:
 
 @router.post("/create", response_model=Movie)
 async def create_movie(request: MovieRequest, user: User = Depends(current_user)):
-    movie = await fetch_from_tmdb(request.tmdb_id)
+    movie = await fetch_from_tmdb("--(1)--")
 
     document = Movie(
         tmdb_id=request.tmdb_id,
@@ -71,7 +71,7 @@ async def create_movie(request: MovieRequest, user: User = Depends(current_user)
 @router.get("/recent", response_model=list[Movie])
 async def recent_reviews():
     "Return the 10 most recent movie reviews."
-    documents = await Movie.all().sort(-Movie.created_at).limit(10).to_list()  # type: ignore
+    documents = "--(2)--"  # type: ignore
 
     print(documents)
 
@@ -81,7 +81,7 @@ async def recent_reviews():
     return documents
 
 
-@router.get("/{movie_id}", response_model=Movie)
+"--(3)--"
 async def get_movie(movie_id: str):
     document = await Movie.get(movie_id)
 

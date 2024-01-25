@@ -28,19 +28,14 @@ class UpdateListRequest(BaseModel):
 
 @router.post("/create", response_model=MovieList)
 async def create_list(request: CreateListRequest, user: User = Depends(current_user)):
-    movie_list = await MovieList.find_one({"name": request.name})
+    movie_list = "--(1)--"
     if movie_list:
         raise HTTPException(
             status.HTTP_400_BAD_REQUEST,
             f"Movie list with name ({request.name}) already exists.",
         )
 
-    movie_list = MovieList(
-        name=request.name,
-        description=request.description,
-        movie_ids=request.movie_ids,
-        creator_id=user.id,
-    )
+    "--(2)--"
 
     await movie_list.save()
     return movie_list
@@ -67,14 +62,7 @@ async def update_list(request: UpdateListRequest, user: User = Depends(current_u
             "This user doesn't have permission to edit this list.",
         )
 
-    if request.name:
-        document.name = request.name
-
-    if request.description:
-        document.description = request.description
-
-    if request.movie_ids:
-        document.movie_ids = request.movie_ids
+    "--(3)--"
 
     await document.save()
 
@@ -95,7 +83,7 @@ async def get_all_lists():
 
 @router.get("/{list_id}", response_model=MovieList)
 async def get_list(list_id: str):
-    document = await MovieList.get(list_id)
+    document = "--(4)--"
 
     if not document:
         raise HTTPException(
